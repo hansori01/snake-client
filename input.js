@@ -1,9 +1,6 @@
 const stdin = process.stdin;
 //stores the active TCP connect object.
 let connection;
-//  = require('./play') //unsure if this is correct
-
-
 const setupInput = (conn) => {
   connection = conn;
   stdin.setRawMode(true);
@@ -27,6 +24,9 @@ const handleUserInput = (key) => {
   };
   if (key === 'd'){
     connection.write('Move: right');
+  };
+  if (key === 'm'){
+    connection.write('Say: is this plane?');
   };
 };
 

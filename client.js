@@ -17,10 +17,9 @@ const connect = function() {
   conn.on('connect', () => {
     conn.write('Name: HAN');
   });
-// conn.on('connect', () => {
-//   conn.write('Move: up');
-
-// });
+  conn.on('error', () => [
+    console.log('👁 👄 👁')
+  ])
   return conn;
 }
 
