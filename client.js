@@ -18,7 +18,8 @@ const connect = function() {
     conn.write('Name: HAN');
   });
 // conn.on('connect', () => {
-// //move commend upon connect
+//   conn.write('Move: up');
+
 // });
   return conn;
 }

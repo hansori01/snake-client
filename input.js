@@ -1,29 +1,34 @@
 const stdin = process.stdin;
-const setupInput = () => {
+//stores the active TCP connect object.
+let connection;
+//  = require('./play') //unsure if this is correct
+
+
+const setupInput = (conn) => {
+  connection = conn;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
-  // handleUserInput();
+  stdin.on('data', handleUserInput);
   return stdin;
 };
-const handleUserInput = stdin.on('data', (key) => {
+const handleUserInput = (key) => {
   if (key === '\u0003') {
     process.exit();
   }
   if (key === 'w'){
-    console.log('up')
-  };
+  connection.write('Move: up');
+};
   if (key === 's'){
-    console.log('down')
+    connection.write('Move: down');
   };
   if (key === 'a'){
-    console.log('left')
+    connection.write('Move: left');
   };
   if (key === 'd'){
-    console.log('right')
+    connection.write('Move: right');
   };
-
-});
+};
 
 
 
